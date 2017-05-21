@@ -1,0 +1,19 @@
+{
+    "name": "mklj/whatjoomlatemplateisthat",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikołaj Pich",
+            "email": "m.pich@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WhatJoomlaTemplateIsThat\\": "src/"
+        }
+    }
+}
