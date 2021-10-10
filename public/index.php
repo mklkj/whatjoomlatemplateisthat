@@ -7,6 +7,7 @@ use WhatJoomlaTemplateIsThat\TemplateNameFinder;
 use WhatJoomlaTemplateIsThat\UrlBuilder;
 
 $url = '';
+$errorMessage = '';
 $error = false;
 
 if ('POST' === $_SERVER['REQUEST_METHOD']) {
@@ -29,6 +30,7 @@ if ('POST' === $_SERVER['REQUEST_METHOD']) {
         $urlBuilder = new UrlBuilder($url, $templateName);
         $templateInfo = new TemplateInfoParser($client, $urlBuilder->templateDetails());
     } catch (Exception $e) {
+        $errorMessage = $e->getMessage();
         $error = true;
     }
 }
@@ -139,6 +141,7 @@ if ('POST' === $_SERVER['REQUEST_METHOD']) {
         <div class="alert alert-warning" role="alert">
             <strong>Warning!</strong> Bad address or other error.
             Try use address like <code>https://joomla.org/</code> without <code>index.php</code> at the end and try again.
+            <details><?=$errorMessage;?></details>
         </div>
       <?php endif ?>
       <footer class="footer">
